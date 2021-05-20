@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docker-practice-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: docker-practice
+  template: 
+    metadata:
+      labels:
+        app: docker-practice
+    spec:
+      containers:
+        - name: docker-practice
+          image: olaodus/docker-practice
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: docker-practice-clusterip-srv
+spec:
+  selector:
+    app: docker-practice
+  ports:
+    - name: docker-practice
+      protocol: TCP
+      port: 4000
+      targetPort: 4000                
+

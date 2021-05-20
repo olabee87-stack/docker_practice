@@ -1,11 +1,14 @@
 {
     "dependencies": {
-        "express":"*"
+        "express":"*",
+        "nodemon": "*",
+        "axios": "*",
+        "request-promise":"*"
         
     },
     
         "scripts": {
-            "start": "node index.js"
+            "start": "nodemon index.js"
             
         }
     }
